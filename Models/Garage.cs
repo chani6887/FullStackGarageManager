@@ -1,24 +1,25 @@
-// Models/Garage.cs
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-public class Garage
+namespace WorkshopManagement.Api.Models
 {
-	// מפתח ראשי ב-MongoDB
-	[BsonId]
-	[BsonRepresentation(BsonType.ObjectId)]
-	public string? Id { get; set; }
+	public class Garage
+	{
+		[BsonId]
+		[BsonRepresentation(BsonType.ObjectId)]
+		public string? Id { get; set; }
 
-	// שדה לבדיקת כפילויות (Unique Key)
-	[BsonElement("mispar_rishayon")]
-	public required string Mispar_Rishayon { get; set; }
+		[BsonElement("name")]
+		public string Name { get; set; } = "";
 
-	[BsonElement("shem_mosach")]
-	public required string Shem_Mosach { get; set; }
+		[BsonElement("city")]
+		public string City { get; set; } = "";
 
-	[BsonElement("ktovet")]
-	public required string Ktovet { get; set; }
+		[BsonElement("address")]
+		public string Address { get; set; } = "";
 
-	[BsonElement("yishuv")]
-	public required string Yishuv { get; set; }
+		// מזהה מה-API הממשלתי (אם קיים) — חשוב לבדוק מיפוי מה-response
+		[BsonElement("externalId")]
+		public string? ExternalId { get; set; }
+	}
 }
