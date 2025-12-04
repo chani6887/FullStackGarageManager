@@ -3,6 +3,14 @@ import { FormControl } from '@angular/forms';
 import { finalize } from 'rxjs/operators';
 import { GarageService } from '../../services/garage.service';
 import { Garage } from '../../models/garage';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { MatSelectModule } from '@angular/material/select';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatTableModule } from '@angular/material/table';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-garages',
