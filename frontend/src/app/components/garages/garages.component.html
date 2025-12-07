@@ -1,8 +1,17 @@
 <mat-card>
+  <mat-card class="title-card">
     <mat-card-title>ניהול מוסכים</mat-card-title>
-  
+    <mat-card-subtitle>בחירה והוספת מוסכים למערכת</mat-card-subtitle>
+  </mat-card>
+  <app-garage-filter></app-garage-filter>
+
+  <app-garage-filter
+  [garages]="savedList"
+  (filterChanged)="onFilterChanged($event)">
+  </app-garage-filter>
+
     <div class="controls">
-      <mat-form-field style="width: 60%">
+      <mat-form-field style="width: 40%">
         <mat-label>בחר מוסכים להוספה</mat-label>
         <mat-select [formControl]="selCtrl" multiple>
           <mat-option *ngFor="let g of govList" [value]="g">
@@ -13,23 +22,31 @@
   
       <button mat-raised-button color="primary" (click)="onAdd()" [disabled]="loading">הוספה</button>
     </div>
+    <app-garage-filter
+    [garages]="savedList"
+    (filterChanged)="onFilterChanged($event)">
+  </app-garage-filter>
+
   
     <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+
+    <table mat-table [dataSource]="filteredList" class="mat-elevation-z8" style="width:100%; margin-top:16px;">
   
-    <table mat-table [dataSource]="savedList" class="mat-elevation-z8" style="width:100%; margin-top:16px;">
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef>שם</th>
-        <td mat-cell *matCellDef="let element">{{element.name}}</td>
-      </ng-container>
       <ng-container matColumnDef="city">
+
         <th mat-header-cell *matHeaderCellDef>יישוב</th>
         <td mat-cell *matCellDef="let element">{{element.city}}</td>
       </ng-container>
       <ng-container matColumnDef="address">
+
         <th mat-header-cell *matHeaderCellDef>כתובת</th>
-        <td mat-cell *matCellDef="let element">{{element.address}}</td>
+        <td mat-cell *matCellDef="let element">{{element.type}}</td>
       </ng-container>
-  
+      <ng-container matColumnDef="name">
+
+        <th mat-header-cell *matHeaderCellDef>שם</th>
+        <td mat-cell *matCellDef="let element">{{element.name}}</td>
+      </ng-container>
       <tr mat-header-row *matHeaderRowDef="['name','city','address']"></tr>
       <tr mat-row *matRowDef="let row; columns: ['name','city','address'];"></tr>
     </table>

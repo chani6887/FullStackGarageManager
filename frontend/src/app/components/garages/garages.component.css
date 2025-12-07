@@ -1,0 +1,11 @@
+.title-card {
+    margin-bottom: 65px;
+    text-align: center;
+  }
+  
+  mat-card-title {
+    font-size: 50px;
+    font-weight: 600;
+    color: rgb(101, 79, 11);
+  }
+  
