@@ -1,0 +1,8 @@
+.filter-center {
+    display: flex;
+    justify-content: center;
+  }
+  mat-form-field {
+    width: 30000px;
+  }
+  
