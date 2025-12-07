@@ -8,24 +8,23 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTableModule } from '@angular/material/table';
-
 import { GarageService } from '../../services/garage.service';
 import { Garage } from '../../models/garage';
 import { finalize } from 'rxjs/operators';
-
+import { MatCardModule } from '@angular/material/card';
 @Component({
   selector: 'app-garages',
   standalone: true,
   imports: [
     CommonModule,
     ReactiveFormsModule,
-
     MatFormFieldModule,
     MatSelectModule,
     MatOptionModule,
     MatButtonModule,
     MatProgressBarModule,
-    MatTableModule
+    MatTableModule,
+    MatCardModule
   ],
   templateUrl: './garages.component.html',
   styleUrls: ['./garages.component.scss']

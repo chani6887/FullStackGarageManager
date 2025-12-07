@@ -7,6 +7,6 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 bootstrapApplication(AppComponent, {
   providers: [
     provideHttpClient(),
-    provideAnimationsAsync() // מייצר HttpClient לשימוש באמצעות ההזרקה
+    provideAnimationsAsync(), provideAnimationsAsync() // מייצר HttpClient לשימוש באמצעות ההזרקה
   ]
 }).catch(err => console.error(err));
