@@ -2,10 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Garage } from '../models/garage';
+import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class GarageService {
-  private base = 'https://localhost:5001/api/garages';
+  private base = `${environment.apiUrl}/api/garages`;
+
   
   constructor(private http: HttpClient) {}
 
